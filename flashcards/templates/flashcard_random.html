@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flashcards</title>
+    <!-- Load the static files -->
+    {% load static %}
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="flashcard-container">
+        <h1>Flashcard</h1>
+        {% if flashcard %}
+            <div class="flashcard-content">
+                {% if hide == 'english' %}
+                    <p><strong>English:</strong> *****</p>
+                {% else %}
+                    <p><strong>English:</strong> {{ flashcard.english_word }}</p>
+                {% endif %}
+
+                {% if hide == 'polish' %}
+                    <p><strong>English:</strong> *****</p>
+                {% else %}
+                    <p><strong>English:</strong> {{ flashcard.polish_translation }}</p>
+                {% endif %}
+            </div>
+            <div class="buttons">
+                <form action="{% url 'flashcard_random' range_start hide %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Next</button>
+                </form>
+                <form action="{% url 'increment_checked' flashcard.id hide %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Mark as Correct</button>
+                </form>
+                <form action="{% url 'clear_all' range_start %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit">Clear All</button>
+                </form>
+            </div>
+            <p>Checked: {{ flashcard.checked }}</p>
+        {% else %}
+            <p>No flashcards available in this range.</p>
+        {% endif %}
+
+        <div class="navigation">
+            <a href="{% url 'flashcard_random' prev_range hide %}">Previous 100 Flashcards</a>
+            <a href="{% url 'flashcard_random' next_range hide %}">Next 100 Flashcards</a>
+        </div>
+
+        <div class="view-mode">
+            <p>View Mode:</p>
+            <a href="{% url 'flashcard_random' range_start 'none' %}">Show Both</a>
+            <a href="{% url 'flashcard_random' range_start 'english' %}">Hide English</a>
+            <a href="{% url 'flashcard_random' range_start 'polish' %}">Hide Polish</a>
+        </div>
+    </div>
+</body>
+</html>

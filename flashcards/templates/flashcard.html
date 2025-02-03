@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flashcards</title>
+    <script>
+        function showTranslation() {
+            document.getElementById("translation").style.display = "block";
+            document.getElementById("showButton").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    {% if card %}
+        <h1>Flashcard {{ card_id }} of {{ total }}</h1>
+        <div>
+            <p><strong>English:</strong> {{ card.english_word }}</p>
+            <p id="translation" style="display: none;"><strong>Polish:</strong> {{ card.polish_translation }}</p>
+        </div>
+        <button id="showButton" onclick="showTranslation()">Show Translation</button>
+        <form action="{% url 'mark_correct' card.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Correct</button>
+        </form>
+        <p>Checked: {{ card.checked }}</p>
+        {% if card_id > 1 %}
+            <a href="{% url 'flashcard' card_id|add:'-1' %}">Previous</a>
+        {% endif %}
+        {% if card_id < total %}
+            <a href="{% url 'flashcard' card_id|add:'1' %}">Next</a>
+        {% endif %}
+    {% else %}
+        <h1>No flashcards available</h1>
+    {% endif %}
+</body>
+</html>
