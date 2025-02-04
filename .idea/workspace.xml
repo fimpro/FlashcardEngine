@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa498539-23ad-4604-84d6-4660518300df" name="Changes" comment="fix bug with url arguments">
+    <list default="true" id="aa498539-23ad-4604-84d6-4660518300df" name="Changes" comment="add keybinds">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flashcards/templates/flashcard_random.html" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards/templates/flashcard_random.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -122,7 +123,7 @@
       <option name="presentableId" value="Default" />
       <updated>1738614750908</updated>
       <workItem from="1738614752303" duration="6650000" />
-      <workItem from="1738628367981" duration="3244000" />
+      <workItem from="1738628367981" duration="4077000" />
     </task>
     <task id="LOCAL-00001" summary="fix bug with url arguments">
       <option name="closed" value="true" />
@@ -132,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738631433141</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add keybinds">
+      <option name="closed" value="true" />
+      <created>1738631635718</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1738631635718</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +149,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix bug with url arguments" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug with url arguments" />
+    <MESSAGE value="add keybinds" />
+    <option name="LAST_COMMIT_MESSAGE" value="add keybinds" />
   </component>
 </project>

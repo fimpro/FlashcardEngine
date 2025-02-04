@@ -43,6 +43,7 @@
 
             // Update the navigation links with the new 'hide' state
             updateNavigationLinks(hideState);
+            updateFormActions(hideState);
         }
 
         // Function to update the navigation links with the current 'hide' state
@@ -57,6 +58,13 @@
             // Update the "Next 100" link
             const nextLink = document.getElementById('next-link');
             nextLink.href = `/flashcard_random/${nextRange}/${hideState}/`;
+        }
+        function updateFormActions(hideState) {
+            const rangeStart = "{{ range_start }}"; // Django template variable
+            const flashcardId = "{{ flashcard.id }}"; // Django template variable
+
+            document.querySelector("#next-button").closest("form").action = `/flashcard_random/${rangeStart}/${hideState}/`;
+            document.querySelector("#mark-correct-button").closest("form").action = `/increment_checked/${flashcardId}/${hideState}/`;
         }
 
         // Function to show both English and Polish words
@@ -93,6 +101,22 @@
     if (event.code === "Enter") {
         event.preventDefault(); // Prevent default behavior (e.g., form submission)
         document.querySelector("#mark-correct-button").click(); // Trigger Mark as Correct button
+    }
+    if (event.code === "ArrowLeft") {
+        event.preventDefault(); // Prevent default behavior (e.g., form submission)
+        document.querySelector("#showboth").click(); // Trigger Mark as Correct button
+    }
+    if (event.code === "ArrowLeft") {
+        event.preventDefault(); // Prevent default behavior (e.g., form submission)
+        document.querySelector("#showboth").click(); // Trigger Mark as Correct button
+    }
+    if (event.code === "ArrowDown") {
+        event.preventDefault(); // Prevent default behavior (e.g., form submission)
+        document.querySelector("#showenglish").click(); // Trigger Mark as Correct button
+    }
+    if (event.code === "ArrowRight") {
+        event.preventDefault(); // Prevent default behavior (e.g., form submission)
+        document.querySelector("#showboth").click(); // Trigger Mark as Correct button
     }
 });
     </script>
@@ -136,13 +160,13 @@
         <div class="view-mode">
             <p>View Mode:</p>
             <label>
-                <input type="radio" name="hide" value="none" {% if hide == 'none' %}checked{% endif %} onchange="showBoth()"> Show Both
+                <input type="radio" name="hide" value="none" {% if hide == 'none' %} checked{% endif %} onchange="showBoth()" id="showboth"> Show Both
             </label>
             <label>
-                <input type="radio" name="hide" value="english" {% if hide == 'english' %}checked{% endif %} onchange="hideEnglish()"> Hide English
+                <input type="radio" name="hide" value="english" {% if hide == 'english' %}checked{% endif %} onchange="hideEnglish()" id="showenglish"> Hide English
             </label>
             <label>
-                <input type="radio" name="hide" value="polish" {% if hide == 'polish' %}checked{% endif %} onchange="hidePolish()"> Hide Polish
+                <input type="radio" name="hide" value="polish" {% if hide == 'polish' %}checked{% endif %} onchange="hidePolish()" id="showpolish"> Hide Polish
             </label>
         </div>
     </div>
