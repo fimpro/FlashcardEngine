@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa498539-23ad-4604-84d6-4660518300df" name="Changes" comment="fix buttons bug">
+    <list default="true" id="aa498539-23ad-4604-84d6-4660518300df" name="Changes" comment="fix right arrow bug">
+      <change afterPath="$PROJECT_DIR$/audio_fetcher.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flashcards/templates/flashcard_random.html" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards/templates/flashcard_random.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,29 +22,29 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "fimpro"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;fimpro&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="a6ffa5bb-7b48-4dd0-b196-51155b295367" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/fimpro/FlashcardEngine.git",
-    "accountId": "a6ffa5bb-7b48-4dd0-b196-51155b295367"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/fimpro/FlashcardEngine.git&quot;,
+    &quot;accountId&quot;: &quot;a6ffa5bb-7b48-4dd0-b196-51155b295367&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -54,6 +57,8 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "Django Server.UltimatePytacz.executor": "Run",
+    "JavaScript Debug.flashcard_random.html.executor": "Run",
+    "Python.audio_fetcher.executor": "Run",
     "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
@@ -122,7 +127,8 @@
       <option name="presentableId" value="Default" />
       <updated>1738614750908</updated>
       <workItem from="1738614752303" duration="6650000" />
-      <workItem from="1738628367981" duration="4139000" />
+      <workItem from="1738628367981" duration="4842000" />
+      <workItem from="1738666868672" duration="3446000" />
     </task>
     <task id="LOCAL-00001" summary="fix bug with url arguments">
       <option name="closed" value="true" />
@@ -148,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738632473131</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix right arrow bug">
+      <option name="closed" value="true" />
+      <created>1738632553609</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738632553609</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,6 +172,10 @@
     <MESSAGE value="fix bug with url arguments" />
     <MESSAGE value="add keybinds" />
     <MESSAGE value="fix buttons bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix buttons bug" />
+    <MESSAGE value="fix right arrow bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix right arrow bug" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FlashcardEngine$audio_fetcher.coverage" NAME="audio_fetcher Coverage Results" MODIFIED="1738667297675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

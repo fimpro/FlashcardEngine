@@ -2,7 +2,16 @@ import csv
 import time
 from googletrans import Translator
 import asyncio
-
+def generate_audio(word, output_dir):
+    """Generate an audio file for the Polish pronunciation."""
+    try:
+        tts = gTTS(word, lang="en")
+        audio_path = os.path.join(output_dir, f"{word}.mp3")
+        tts.save(audio_path)
+        return audio_path
+    except Exception as e:
+        print(f"Error generating audio for '{word}': {e}")
+        return None
 
 def load_words_from_txt(file_path):
     """Load words from a text file."""

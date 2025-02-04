@@ -15,7 +15,16 @@
             // The 'hide' value is the second-to-last part of the URL
             return pathParts[pathParts.length - 2];
         }
-
+        function playEnglishWord() {
+            const englishWord = '{{ flashcard.english_word }}'; // Django variable for the English word
+            if (englishWord && 'speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(englishWord);
+                utterance.lang = 'en-US'; // Set the language to English (US)
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.error("SpeechSynthesis not supported or English word is missing.");
+            }
+        }
         // Function to set initial visibility based on the 'hide' value in the URL
         function setInitialVisibility() {
             const hideValue = getHideFromUrl();
@@ -31,6 +40,7 @@
                 document.getElementById('polish-word').innerText = '{{ flashcard.polish_translation }}';
             }
             document.querySelector('.flashcard-content').style.visibility = 'visible';
+            playEnglishWord();
         }
 
         // Function to update the URL with the new 'hide' state
@@ -93,7 +103,7 @@
         return; // Ignore keypresses in input fields
     }
 
-    if (event.code === "Space") {
+    if (event.code === "ArrowUp") {
         event.preventDefault(); // Prevent scrolling down
         document.querySelector("#next-button").click(); // Trigger Next button
     }
@@ -101,10 +111,6 @@
     if (event.code === "Enter") {
         event.preventDefault(); // Prevent default behavior (e.g., form submission)
         document.querySelector("#mark-correct-button").click(); // Trigger Mark as Correct button
-    }
-    if (event.code === "ArrowLeft") {
-        event.preventDefault(); // Prevent default behavior (e.g., form submission)
-        document.querySelector("#showboth").click(); // Trigger Mark as Correct button
     }
     if (event.code === "ArrowLeft") {
         event.preventDefault(); // Prevent default behavior (e.g., form submission)
@@ -146,6 +152,7 @@
                     {% csrf_token %}
                     <button type="submit">Clear All</button>
                 </form>
+                <button id="play-sound-button" onclick="playEnglishWord()">Play Sound</button>
             </div>
             <p>Checked: {{ flashcard.checked }}</p>
         {% else %}
