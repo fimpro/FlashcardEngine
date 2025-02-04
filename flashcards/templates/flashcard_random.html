@@ -40,7 +40,6 @@
                 document.getElementById('polish-word').innerText = '{{ flashcard.polish_translation }}';
             }
             document.querySelector('.flashcard-content').style.visibility = 'visible';
-            playEnglishWord();
         }
 
         // Function to update the URL with the new 'hide' state
@@ -82,6 +81,7 @@
             document.getElementById('english-word').innerText = '{{ flashcard.english_word }}';
             document.getElementById('polish-word').innerText = '{{ flashcard.polish_translation }}';
             updateUrl('none');
+            playEnglishWord();
         }
 
         // Function to hide the English word
@@ -96,6 +96,7 @@
             document.getElementById('english-word').innerText = '{{ flashcard.english_word }}';
             document.getElementById('polish-word').innerText = '*****';
             updateUrl('polish');
+            playEnglishWord();
         }
 
         document.addEventListener("keydown", function(event) {

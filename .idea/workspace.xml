@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa498539-23ad-4604-84d6-4660518300df" name="Changes" comment="fix right arrow bug">
-      <change afterPath="$PROJECT_DIR$/audio_fetcher.py" afterDir="false" />
+    <list default="true" id="aa498539-23ad-4604-84d6-4660518300df" name="Changes" comment="add voice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fetcher.py" beforeDir="false" afterPath="$PROJECT_DIR$/fetcher.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flashcards/templates/flashcard_random.html" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards/templates/flashcard_random.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -128,7 +125,7 @@
       <updated>1738614750908</updated>
       <workItem from="1738614752303" duration="6650000" />
       <workItem from="1738628367981" duration="4842000" />
-      <workItem from="1738666868672" duration="3446000" />
+      <workItem from="1738666868672" duration="3793000" />
     </task>
     <task id="LOCAL-00001" summary="fix bug with url arguments">
       <option name="closed" value="true" />
@@ -162,7 +159,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738632553609</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add voice">
+      <option name="closed" value="true" />
+      <created>1738670578697</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1738670578697</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +178,8 @@
     <MESSAGE value="add keybinds" />
     <MESSAGE value="fix buttons bug" />
     <MESSAGE value="fix right arrow bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix right arrow bug" />
+    <MESSAGE value="add voice" />
+    <option name="LAST_COMMIT_MESSAGE" value="add voice" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/FlashcardEngine$audio_fetcher.coverage" NAME="audio_fetcher Coverage Results" MODIFIED="1738667297675" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
