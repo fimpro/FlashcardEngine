@@ -6,33 +6,103 @@
     {% load static %}
     <!-- Link to the external CSS file -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script>
+         // Call setInitialVisibility when the page loads
+        window.onload = setInitialVisibility;
+        // Function to extract the 'hide' value from the URL path
+        function getHideFromUrl() {
+            const pathParts = window.location.pathname.split('/');
+            // The 'hide' value is the second-to-last part of the URL
+            return pathParts[pathParts.length - 2];
+        }
+
+        // Function to set initial visibility based on the 'hide' value in the URL
+        function setInitialVisibility() {
+            const hideValue = getHideFromUrl();
+
+            // Set visibility based on the 'hide' value
+            if (hideValue === 'english') {
+                document.getElementById('english-word').innerText = '*****';
+            } else if (hideValue === 'polish') {
+                document.getElementById('polish-word').innerText = '*****';
+            } else {
+                // Default: show both
+                document.getElementById('english-word').innerText = '{{ flashcard.english_word }}';
+                document.getElementById('polish-word').innerText = '{{ flashcard.polish_translation }}';
+            }
+            document.querySelector('.flashcard-content').style.visibility = 'visible';
+        }
+
+        // Function to update the URL with the new 'hide' state
+        function updateUrl(hideState) {
+            const pathParts = window.location.pathname.split('/');
+            // Replace the 'hide' part of the URL
+            pathParts[pathParts.length - 2] = hideState;
+            const newUrl = pathParts.join('/');
+            window.history.replaceState({}, '', newUrl);
+
+            // Update the navigation links with the new 'hide' state
+            updateNavigationLinks(hideState);
+        }
+
+        // Function to update the navigation links with the current 'hide' state
+        function updateNavigationLinks(hideState) {
+            const prevRange = {{ prev_range }};
+            const nextRange = {{ next_range }};
+
+            // Update the "Previous 100" link
+            const prevLink = document.getElementById('prev-link');
+            prevLink.href = `/flashcard_random/${prevRange}/${hideState}/`;
+
+            // Update the "Next 100" link
+            const nextLink = document.getElementById('next-link');
+            nextLink.href = `/flashcard_random/${nextRange}/${hideState}/`;
+        }
+
+        // Function to show both English and Polish words
+        function showBoth() {
+            document.getElementById('english-word').innerText = '{{ flashcard.english_word }}';
+            document.getElementById('polish-word').innerText = '{{ flashcard.polish_translation }}';
+            updateUrl('none');
+        }
+
+        // Function to hide the English word
+        function hideEnglish() {
+            document.getElementById('english-word').innerText = '*****';
+            document.getElementById('polish-word').innerText = '{{ flashcard.polish_translation }}';
+            updateUrl('english');
+        }
+
+        // Function to hide the Polish word
+        function hidePolish() {
+            document.getElementById('english-word').innerText = '{{ flashcard.english_word }}';
+            document.getElementById('polish-word').innerText = '*****';
+            updateUrl('polish');
+        }
+
+
+    </script>
 </head>
 <body>
     <div class="flashcard-container">
         <h1>Flashcard</h1>
         {% if flashcard %}
             <div class="flashcard-content">
-                {% if hide == 'english' %}
-                    <p><strong>English:</strong> *****</p>
-                {% else %}
-                    <p><strong>English:</strong> {{ flashcard.english_word }}</p>
-                {% endif %}
-
-                {% if hide == 'polish' %}
-                    <p><strong>Polish:</strong> *****</p>
-                {% else %}
-                    <p><strong>Polish:</strong> {{ flashcard.polish_translation }}</p>
-                {% endif %}
+                <p><strong>English:</strong> <span id="english-word">{{ flashcard.english_word }}</span></p>
+                <p><strong>Polish:</strong> <span id="polish-word">{{ flashcard.polish_translation }}</span></p>
             </div>
             <div class="buttons">
+                <!-- Form for "Next" button -->
                 <form action="{% url 'flashcard_random' range_start hide %}" method="post" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit">Next</button>
                 </form>
+                <!-- Form for "Mark as Correct" button -->
                 <form action="{% url 'increment_checked' flashcard.id hide %}" method="post" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit">Mark as Correct</button>
                 </form>
+                <!-- Form for "Clear All" button -->
                 <form action="{% url 'clear_all' range_start %}" method="post" style="display: inline;">
                     {% csrf_token %}
                     <button type="submit">Clear All</button>
@@ -44,15 +114,21 @@
         {% endif %}
 
         <div class="navigation">
-            <a href="{% url 'flashcard_random' prev_range hide %}">Previous 100 Flashcards</a>
-            <a href="{% url 'flashcard_random' next_range hide %}">Next 100 Flashcards</a>
+            <a id="prev-link" href="{% url 'flashcard_random' prev_range hide %}" class="nav-button">Previous 100 Flashcards</a>
+            <a id="next-link" href="{% url 'flashcard_random' next_range hide %}" class="nav-button">Next 100 Flashcards</a>
         </div>
 
         <div class="view-mode">
             <p>View Mode:</p>
-            <a href="{% url 'flashcard_random' range_start 'none' %}">Show Both</a>
-            <a href="{% url 'flashcard_random' range_start 'english' %}">Hide English</a>
-            <a href="{% url 'flashcard_random' range_start 'polish' %}">Hide Polish</a>
+            <label>
+                <input type="radio" name="hide" value="none" {% if hide == 'none' %}checked{% endif %} onchange="showBoth()"> Show Both
+            </label>
+            <label>
+                <input type="radio" name="hide" value="english" {% if hide == 'english' %}checked{% endif %} onchange="hideEnglish()"> Hide English
+            </label>
+            <label>
+                <input type="radio" name="hide" value="polish" {% if hide == 'polish' %}checked{% endif %} onchange="hidePolish()"> Hide Polish
+            </label>
         </div>
     </div>
 </body>

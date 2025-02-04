@@ -73,3 +73,6 @@ h1 {
 .view-mode a:hover {
     text-decoration: underline;
 }
+.flashcard-content {
+        visibility: hidden;
+    }

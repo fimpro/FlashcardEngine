@@ -18,7 +18,7 @@ def flashcard_view(request, card_id=1):
                   {'card': card, 'card_id': card_id, 'total': total, 'show_translation': False})
 
 def flashcard_random(request, range_start=0, hide='none'):
-    # Ensure range_start is a multiple of 100
+    # Ensure range_start is a multiple of 10
     range_start = (range_start // 100) * 100
     range_end = range_start + 99
 
