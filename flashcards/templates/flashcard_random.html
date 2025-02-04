@@ -80,7 +80,21 @@
             updateUrl('polish');
         }
 
+        document.addEventListener("keydown", function(event) {
+    if (event.target.tagName === "INPUT" || event.target.tagName === "TEXTAREA") {
+        return; // Ignore keypresses in input fields
+    }
 
+    if (event.code === "Space") {
+        event.preventDefault(); // Prevent scrolling down
+        document.querySelector("#next-button").click(); // Trigger Next button
+    }
+
+    if (event.code === "Enter") {
+        event.preventDefault(); // Prevent default behavior (e.g., form submission)
+        document.querySelector("#mark-correct-button").click(); // Trigger Mark as Correct button
+    }
+});
     </script>
 </head>
 <body>
@@ -92,15 +106,16 @@
                 <p><strong>Polish:</strong> <span id="polish-word">{{ flashcard.polish_translation }}</span></p>
             </div>
             <div class="buttons">
-                <!-- Form for "Next" button -->
+                <!-- "Next" button -->
                 <form action="{% url 'flashcard_random' range_start hide %}" method="post" style="display: inline;">
                     {% csrf_token %}
-                    <button type="submit">Next</button>
+                    <button type="submit" id="next-button">Next</button>
                 </form>
-                <!-- Form for "Mark as Correct" button -->
+
+                <!-- "Mark as Correct" button -->
                 <form action="{% url 'increment_checked' flashcard.id hide %}" method="post" style="display: inline;">
                     {% csrf_token %}
-                    <button type="submit">Mark as Correct</button>
+                    <button type="submit" id="mark-correct-button">Mark as Correct</button>
                 </form>
                 <!-- Form for "Clear All" button -->
                 <form action="{% url 'clear_all' range_start %}" method="post" style="display: inline;">

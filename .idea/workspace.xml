@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aa498539-23ad-4604-84d6-4660518300df" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="aa498539-23ad-4604-84d6-4660518300df" name="Changes" comment="fix bug with url arguments">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/flashcards/templates/flashcard_random.html" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards/templates/flashcard_random.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flashcards/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/flashcards/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,11 +122,24 @@
       <option name="presentableId" value="Default" />
       <updated>1738614750908</updated>
       <workItem from="1738614752303" duration="6650000" />
-      <workItem from="1738628367981" duration="2934000" />
+      <workItem from="1738628367981" duration="3244000" />
     </task>
+    <task id="LOCAL-00001" summary="fix bug with url arguments">
+      <option name="closed" value="true" />
+      <created>1738631433141</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1738631433141</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix bug with url arguments" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix bug with url arguments" />
   </component>
 </project>
