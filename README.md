@@ -1,5 +1,5 @@
 # Flashcard App
-![Flashcard App Screenshot](screenFlashcard.png)
+![Flashcard App Screenshot](screenFlashcards.png)
 This Flashcard App is designed to help users learn and practice vocabulary in multiple languages. Users can view flashcards, mark them as correct, clear their progress, and even play the pronunciation of words.
 
 ## Features
